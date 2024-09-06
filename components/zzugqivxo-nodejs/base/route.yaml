@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: zzugqivxo-nodejs
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: zzugqivxo-nodejs 
+  name: zzugqivxo-nodejs
+spec:
+  port:
+    targetPort: 3001 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: zzugqivxo-nodejs
+    weight: 100 
